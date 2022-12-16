@@ -31,8 +31,8 @@ export const changedItem = (payload) => {
 
 // Initial State
 const initialState = [
-  { id: "1", title: "리액트 복습하기", text: "열심히 하자", isDone: false },
-  { id: "2", title: "TodoList 복습하기", text: "가즈아", isDone: true },
+  { id: "1", title: "리액트 복습", text: "열심히 하자", isDone: false },
+  { id: "2", title: "TodoList 복습", text: "가즈아", isDone: true },
 ];
 
 // Reducer

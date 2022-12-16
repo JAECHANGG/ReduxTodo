@@ -7,11 +7,11 @@ import { addItem } from "../redux/modules/todos";
 
 const Form = styled.form`
   display: flex;
-  background-color: #eee;
-  border-radius: 12px;
+  background-color: white;
   justify-content: space-between;
   margin: 0 auto;
   padding: 30px;
+  border-bottom: 4px solid #00b0ff;
 `;
 
 const FormInputBox = styled.div`
@@ -31,10 +31,12 @@ const FormInput = styled.input.attrs({ type: "text" })`
   height: 40px;
   padding: 0 12px;
   width: 240px;
+  border: 2px solid #00b0ff;
+  box-shadow: 2px 2px 9px 0px rgba(0, 176, 255, 0.58);
 `;
 
 const FormButton = styled.button`
-  background-color: teal;
+  background-color: #00b0ff;
   border: none;
   border-radius: 10px;
   color: #fff;

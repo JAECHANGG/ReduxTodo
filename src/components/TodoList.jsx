@@ -10,12 +10,14 @@ const TodoListBox = styled.div`
   gap: 12px;
 `;
 
+const H1 = styled.h1``;
+
 export default function TodoList({ isWorking }) {
   const todos = useSelector((state) => state.todos);
 
   return (
     <div>
-      <h1>{isWorking ? "Working" : "isDone"}</h1>
+      <H1>{isWorking ? "Active" : "isDone"}</H1>
       <TodoListBox>
         {todos
           .filter((todo) => (todo.isDone ? !isWorking : isWorking))

@@ -6,25 +6,40 @@ import { Link } from "react-router-dom";
 import { deletedItem, changedItem } from "../redux/modules/todos";
 
 const TodoItemBox = styled.div`
+  overflow: hidden;
   border-radius: 12px;
-  padding: 12px 24px 24px;
   border: 4px solid lightblue;
   width: 270px;
 `;
 
+const TodoTitle = styled.h2`
+  margin: 0;
+  color: white;
+  padding: 10px;
+  height: 30px;
+  background-color: lightblue;
+  overflow: hidden;
+`;
+
+const TodoText = styled.p`
+  font-weight: 700;
+  height: 40px;
+  padding: 10px;
+  margin: 0;
+`;
+
 const BtnBox = styled.div`
   display: flex;
-  gap: 10px;
+  justify-content: flex-end;
   margin-top: 24px;
+  padding: 10px;
+  border-top: 4px solid lightblue;
 `;
 
 const TodoBtn = styled.button`
   cursor: pointer;
-  height: 40px;
-  width: 50%;
-  border-radius: 12px;
   background-color: #fff;
-  border: 2px solid ${(props) => props.borderColor};
+  border: none;
 `;
 
 export default function TodoItem({ todo }) {
@@ -42,15 +57,18 @@ export default function TodoItem({ todo }) {
 
   return (
     <TodoItemBox>
-      <Link to={`/detail/${todo.id}`}>상세정보</Link>
-      <h1>{todo.title}</h1>
-      <p>{todo.text}</p>
+      <TodoTitle>{todo.title.slice(0, 12)}</TodoTitle>
+      <TodoText>{todo.text.slice(0, 40)}</TodoText>
       <BtnBox>
-        <TodoBtn borderColor="red" onClick={onClickDeleteHandler}>
-          삭제
-        </TodoBtn>
-        <TodoBtn borderColor="green" onClick={onClickChangeHandler}>
-          {todo.isDone ? "취소" : "확인"}
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={`/detail/${todo.id}`}
+        >
+          자세히 보기
+        </Link>
+        <TodoBtn onClick={onClickDeleteHandler}>🗑️</TodoBtn>
+        <TodoBtn onClick={onClickChangeHandler}>
+          {todo.isDone ? "❌" : "☑️"}
         </TodoBtn>
       </BtnBox>
     </TodoItemBox>
